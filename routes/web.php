@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\AuthController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\ConfigController;
 use App\Http\Controllers\backend\PageController;
+use App\Http\Controllers\backend\ProfileController;
 use App\Http\Controllers\frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,8 @@ Route::get('bakimdayiz', function(){
  * Backend Routes
  */
 Route::prefix('admin')->name('admin.')->middleware('isLogin')->group(function(){
+
+    //Login
     Route::get('giris', [AuthController::class, 'login'])->name('login');
     Route::post('giris', [AuthController::class, 'loginPost'])->name('login.post');
 });
@@ -36,7 +39,7 @@ Route::prefix('admin')->name('admin.')->middleware('isLogin')->group(function(){
 Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
     Route::get('panel', [AdminController::class, 'index'])->name('dashboard');
 
-    //Article routes
+    //Article Routes
     Route::get('makaleler/silinenler', [ArticleController::class, 'trashed'])->name('trashed.article');
     Route::resource('makaleler', ArticleController::class);
     Route::get('/switch', [ArticleController::class, 'switch'])->name('switch');
@@ -66,7 +69,11 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
     Route::get('ayarlar', [ConfigController::class, 'index'])->name('config.index');
     Route::post('ayarlar/guncelle', [ConfigController::class, 'update'])->name('config.update');
 
-    //
+    //Admin Routes
+    Route::get('profil', [ProfileController::class, 'adminProfile'])->name('profile');
+    Route::post('profil', [ProfileController::class, 'adminPost'])->name('profile.post');
+
+    //Logout
     Route::get('cikis', [AuthController::class, 'logout'])->name('logout');
 });
 

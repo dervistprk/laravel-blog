@@ -24,8 +24,8 @@
             </div>
             <div class="modal-body">Çıkış yapmak için <b>Çıkış Yap</b> butonuna tıklayınız.</div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">İptal</button>
-                <a class="btn btn-primary" href="{{route('admin.logout')}}">Çıkış Yap</a>
+                <button class="btn btn-primary" type="button" data-dismiss="modal">İptal</button>
+                <a class="btn btn-danger" href="{{route('admin.logout')}}">Çıkış Yap</a>
             </div>
         </div>
     </div>
