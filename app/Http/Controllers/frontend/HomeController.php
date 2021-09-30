@@ -21,6 +21,7 @@ class HomeController extends Controller
 
         view()->share('pages', Page::where('status', 1)->orderBy('order')->get());
         view()->share('categories', Category::orderBy('name')->where('status', 1)->get());
+        view()->share('config', Config::find(1));
     }
 
     public function index(){

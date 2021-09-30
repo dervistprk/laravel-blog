@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Config;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
@@ -30,7 +29,6 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultstringLength(255);
         Paginator::useBootstrap();
 
-        view()->share('config', Config::find(1));
         Route::resourceVerbs([
                                 'create' => 'olustur',
                                 'edit'   => 'duzenle',
