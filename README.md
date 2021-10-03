@@ -1,5 +1,6 @@
 <h2>Random Laravel Blog App</h2>
 <h4>Just some random laravel blog site project source codes.</h4>
+<p>I have used a free html template <a>https://startbootstrap.com/theme/sb-admin-2</a>, bootstrap and font-awesome.</p>
 <p>Install composer dependencies by <code>composer install</code> command.</p>
 <p>Rename <b>.env.example</b> file to <b>.env</b> file and configure your database and mail settings.</p>
 <p>Generate new app_key by <code>php artisan key:generate</code> command.</p>
