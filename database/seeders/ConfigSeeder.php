@@ -12,13 +12,14 @@ class ConfigSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
+    public function run(){
         DB::table('configs')->insert([
-                                            'title' => 'Blogger',
-                                            'created_at' => now(),
-                                            'updated_at' => now(),
-                                        ]);
+                                         'title'      => 'Blogger',
+                                         'github'     => 'https://github.com/dervistprk',
+                                         'linkedin'   => 'https://www.linkedin.com/in/dervi%C5%9F-toprak-0698a81b7/',
+                                         'created_at' => now(),
+                                         'updated_at' => now(),
+                                     ]);
 
     }
 }

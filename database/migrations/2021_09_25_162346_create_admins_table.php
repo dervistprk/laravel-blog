@@ -11,9 +11,8 @@ class CreateAdminsTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('admins', function (Blueprint $table) {
+    public function up(){
+        Schema::create('admins', function(Blueprint $table){
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email');
@@ -27,8 +26,7 @@ class CreateAdminsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down(){
         Schema::dropIfExists('admins');
     }
 }

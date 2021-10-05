@@ -11,9 +11,8 @@ class CreateArticlesTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('articles', function (Blueprint $table) {
+    public function up(){
+        Schema::create('articles', function(Blueprint $table){
             $table->bigIncrements('id');
             $table->unsignedBigInteger('category_id')->nullable();
             $table->string('title');
@@ -27,7 +26,7 @@ class CreateArticlesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('articles', function (Blueprint $table) {
+        Schema::table('articles', function(Blueprint $table){
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
@@ -37,8 +36,7 @@ class CreateArticlesTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down(){
         Schema::dropIfExists('articles');
     }
 }

@@ -11,9 +11,8 @@ class CreateConfigsTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('configs', function (Blueprint $table) {
+    public function up(){
+        Schema::create('configs', function(Blueprint $table){
             $table->id();
             $table->string('title');
             $table->string('logo')->nullable();
@@ -34,8 +33,7 @@ class CreateConfigsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down(){
         Schema::dropIfExists('configs');
     }
 }

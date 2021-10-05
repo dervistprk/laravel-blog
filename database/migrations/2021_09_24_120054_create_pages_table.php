@@ -11,9 +11,8 @@ class CreatePagesTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('pages', function (Blueprint $table) {
+    public function up(){
+        Schema::create('pages', function(Blueprint $table){
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('image');
@@ -30,8 +29,7 @@ class CreatePagesTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down(){
         Schema::dropIfExists('pages');
     }
 }
