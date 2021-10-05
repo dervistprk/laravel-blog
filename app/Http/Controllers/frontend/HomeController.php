@@ -16,7 +16,7 @@ class HomeController extends Controller
 {
     public function __construct(){
         if(Config::find(1)->active == 0){
-            return redirect()->to('bakimdayiz')->send();
+            redirect()->to('bakimdayiz')->send();
         }
 
         view()->share('pages', Page::where('status', 1)->orderBy('order')->get());
@@ -25,11 +25,11 @@ class HomeController extends Controller
     }
 
     public function index(){
-        $data['articles'] = Article::with('category')->where('status', 1)->whereHas('category', function($query){
+        $articles = Article::with('category')->where('status', 1)->whereHas('category', function($query){
             $query->where('status', 1);
-        })->orderBy('created_at', 'DESC')->paginate(10);
-        $data['articles']->withPath(url('sayfa'));
-        return view('frontend.home')->with($data);
+        })->orderBy('created_at', 'DESC')->paginate(5);
+        $articles->withPath(url('sayfa'));
+        return view('frontend.home', compact('articles'));
     }
 
     public function single($category, $slug){
@@ -40,12 +40,10 @@ class HomeController extends Controller
             }
         }
 
-
         $category = Category::whereSlug($category)->first() ?? abort(404, 'Kategori Bulunamadı');
         $article  = Article::whereSlug($slug)->whereCategoryId($category->id)->first() ?? abort(404, 'Makale Bulunamadı');
         $article->increment('hit');
-        $data['article'] = $article;
-        return view('frontend.single')->with($data);
+        return view('frontend.single', compact('article'));
     }
 
     public function category($slug){
@@ -56,10 +54,9 @@ class HomeController extends Controller
             }
         }
 
-        $category         = Category::whereSlug($slug)->first() ?? abort(404, 'Kategori Bulunamadı');
-        $data['category'] = $category;
-        $data['articles'] = Article::where('category_id', $category->id)->where('status', 1)->orderBy('created_at', 'DESC')->paginate(5);
-        return view('frontend.category')->with($data);
+        $category = Category::whereSlug($slug)->first() ?? abort(404, 'Kategori Bulunamadı');
+        $articles = Article::where('category_id', $category->id)->where('status', 1)->orderBy('created_at', 'DESC')->paginate(5);
+        return view('frontend.category', compact('category', 'articles'));
     }
 
     public function pages($slug){
@@ -71,8 +68,7 @@ class HomeController extends Controller
         }
 
         $page         = Page::whereSlug($slug)->first() ?? abort(404, 'Böyle Bir Sayfa Bulunamadı');
-        $data['page'] = $page;
-        return view('frontend.page')->with($data);
+        return view('frontend.page', compact('page'));
     }
 
     public function contact(){

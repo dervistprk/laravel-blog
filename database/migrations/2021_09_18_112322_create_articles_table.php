@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('category_id')->nullable();
             $table->string('title');
+            $table->text('sub_title');
             $table->string('image')->default('-');
             $table->longText('content');
             $table->integer('hit')->default(0);

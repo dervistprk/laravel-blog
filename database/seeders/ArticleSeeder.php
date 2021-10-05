@@ -13,19 +13,20 @@ class ArticleSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
+    public function run(){
         $faker = Faker::create();
-        for($i=0; $i<8; $i++){
+        for($i = 0; $i < 8; $i++){
             $title = $faker->sentence(6);
+            $sub_title = $faker->sentence(20);
             DB::table('articles')->insert([
-                'category_id' => rand(1, 6),
-                'title'       => $title,
-                'image'       => $faker->imageUrl(800, 400, 'fashion', 'Blogger'),
-                'content'     => $faker->paragraph(8),
-                'slug'        => str_slug($title),
-                'created_at'  => $faker->dateTime('now'),
-                'updated_at'  => now(),
+                                              'category_id' => rand(1, 6),
+                                              'title'       => $title,
+                                              'sub_title'   => $sub_title,
+                                              'image'       => $faker->imageUrl(800, 400, 'cats', 'Blogger'),
+                                              'content'     => $faker->paragraph(15),
+                                              'slug'        => str_slug($title),
+                                              'created_at'  => $faker->dateTime(),
+                                              'updated_at'  => now(),
                                           ]);
         }
     }

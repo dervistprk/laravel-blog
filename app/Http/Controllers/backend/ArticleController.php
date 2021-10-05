@@ -60,6 +60,7 @@ class ArticleController extends Controller
                            ]);
         $article              = new Article();
         $article->title       = $request->title;
+        $article->sub_title   = $request->sub_title;
         $article->category_id = $request->category;
         $article->content     = $request->content;
         $article->slug        = Str::slug($request->title);
@@ -111,6 +112,7 @@ class ArticleController extends Controller
                            ]);
         $article              = Article::findOrFail($id);
         $article->title       = $request->title;
+        $article->sub_title   = $request->sub_title;
         $article->category_id = $request->category;
         $article->content     = $request->content;
         $article->slug        = Str::slug($request->title);

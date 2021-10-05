@@ -2,9 +2,10 @@
     @foreach($articles as $article)
         <div class="post-preview">
             <a href="{{route('single', [$article->category->slug, $article->slug])}}">
-                <h2 class="post-title">{{$article->title}}</h2>
-                <img data-src="{{$article->image}}" alt="article-image" class="lazyload" loading="lazy" width="700" height="350">
+                <h2 class="post-heading">{{$article->title}}</h2>
+                <img data-src="{{URL::asset($article->image)}}" alt="article-image" class="lazyload" loading="lazy" width="700" height="350">
             </a>
+            <p class="post-preview">{!! $article->sub_title !!}</p>
             <p class="post-meta">
                 Kategori : <a href="{{route('category', $article->category->slug)}}">{{$article->category->name}}</a>
                 <span class="float-end">Oluşturulma Tarihi : {{$article->created_at->diffForHumans()}}</span>

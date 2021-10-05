@@ -20,6 +20,10 @@
                     <input type="text" name="title" id="title" class="form-control" required>
                 </div>
                 <div class="form-group">
+                    <label for="sub_title" class="text-info font-weight-bold">Makale Alt Başlığı</label>
+                    <input type="text" name="sub_title" id="sub_title" class="form-control" required>
+                </div>
+                <div class="form-group">
                     <label for="category" class="text-info font-weight-bold">Makale Kategorisi</label>
                     <select class="form-control" name="category" id="category" required>
                         <option value="">Lütfen Seçiniz...</option>
