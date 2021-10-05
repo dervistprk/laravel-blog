@@ -7,6 +7,6 @@
 <p>Create database tables and seed data inside it by <code>php artisan migrate:fresh --seed</code> command.</p>
 <p>Start your local development server by <code>php artisan serve</code> command. You will need a local server program for this.(Xampp, Wampp etc.)</p>
 </p>
-    Go to <b>http://localhost:8000/admin/giris</b> and type <b>>admin@email.com</b> for email and <b>123456</b> for the password.<br>
+    Go to <code>http://localhost:8000/admin/giris</code> and type <code>admin@email.com</code> for email and <code>123456</code> for the password.<br>
     After that, go to <i>articles(Makaleler)</i> -> <i>all articles(Tüm Makaleler)</i> and make active all the articles have been added before by the faker lib.
 </p>
