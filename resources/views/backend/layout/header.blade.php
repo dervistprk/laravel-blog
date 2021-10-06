@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="blogger yönetim paneli">
+    <meta name="author" content="blogger">
+    <meta name="robots" content="noindex">
     <link rel="icon" type="image/x-icon" href="{{ URL::asset('configs_uploads/blogger-backoffice-favicon.png') }}" />
 
     <title>@yield('title', 'Yönetim Paneli')</title>

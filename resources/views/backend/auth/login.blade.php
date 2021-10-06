@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="blogger admin girişi">
+    <meta name="author" content="blogger">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/x-icon" href="{{ URL::asset('configs_uploads/blogger-backoffice-favicon.png') }}"/>
     <title>Admin Giriş Ekranı</title>
     <link href="{{URL::asset('back/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
@@ -20,7 +22,7 @@
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
                     <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                        <div class="col-lg-6 d-none d-lg-block"><img src="{{URL::asset('page_images/admin-login.png')}}" alt="admin-login" height="250" width="400" style="margin: 50px 0 50px 50px"></div>
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
