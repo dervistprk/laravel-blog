@@ -15,7 +15,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            <i class="fas fa-journal-whills fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            <i class="fas fa-eye fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            <i class="fas fa-book-open fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>

@@ -29,7 +29,8 @@ class HomeController extends Controller
             $query->where('status', 1);
         })->orderBy('created_at', 'DESC')->paginate(5);
         $articles->withPath(url('sayfa'));
-        return view('frontend.home', compact('articles'));
+        $most_viewed = Article::orderBy('hit', 'desc')->limit(3)->get();
+        return view('frontend.home', compact('articles', 'most_viewed'));
     }
 
     public function single($category, $slug){
