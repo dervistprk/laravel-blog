@@ -63,7 +63,7 @@ class ArticleController extends Controller
                                'content' => 'min:30',
                            ]);
         $article              = new Article();
-        $article->title       = $request->title;
+        $article->title       = ucwords($request->title);
         $article->sub_title   = $request->sub_title;
         $article->category_id = $request->category;
         $article->content     = $request->content;
@@ -118,7 +118,7 @@ class ArticleController extends Controller
                                'content' => 'min:30',
                            ]);
         $article              = Article::findOrFail($id);
-        $article->title       = ucfirst($request->title);
+        $article->title       = ucwords($request->title);
         $article->sub_title   = $request->sub_title;
         $article->category_id = $request->category;
         $article->content     = $request->content;

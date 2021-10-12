@@ -19,7 +19,7 @@
 @else
     <div class="alert alert-danger text-center">
         <p>
-        <h6>Bu kategoride kayıtlı makale bulunamadı.</h6>
+        <h6>Kayıtlı makale bulunamadı.</h6>
         </p>
     </div>
 @endif

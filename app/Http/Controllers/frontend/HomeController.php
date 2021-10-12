@@ -25,8 +25,12 @@ class HomeController extends Controller
         view()->share('config', Config::find(1));
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        if(isset($request->search)){
+            $articles = Article::where('title', 'like', '%' . $request->search . '%')->orderBy('created_at', 'desc')->paginate(5);
+            return view('frontend.home', compact('articles'));
+        }
         $articles = Article::with('category')->where('status', 1)->whereHas('category', function($query){
             $query->where('status', 1);
         })->orderBy('created_at', 'DESC')->paginate(5);

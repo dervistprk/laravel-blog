@@ -31,20 +31,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('home')}}">Ana Sayfa</a>
+                <li class="nav-item">
+                    <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('home')}}">Ana Sayfa</a>
                 </li>
                 @foreach($pages as $page)
                     <li class="nav-item">
                         <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('pages', $page->slug)}}">{{$page->title}}</a>
                     </li>
                 @endforeach
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('contact')}}">İletişim</a>
+                <li class="nav-item">
+                    <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('contact')}}">İletişim</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-
 <header class="masthead" style="background-image: url('@yield('bg',asset('front/assets/img/home-bg.jpg'))')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -56,5 +57,11 @@
         </div>
     </div>
 </header>
+        <div class="container col-md-4" style="margin-bottom: 15px;">
+            <form action="{{route('home')}}" method="get">
+                <input class="form-control" type="search" placeholder="Aramak İstediğiniz İçeriği Giriniz" aria-label="Search" name="search">
+                <button class="btn btn-success btn-sm" type="submit" style="margin: 5px 0 0 200px;">Ara</button>
+            </form>
+        </div>
 <div class="container px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">

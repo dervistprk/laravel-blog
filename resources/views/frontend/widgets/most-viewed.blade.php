@@ -1,5 +1,5 @@
 @if(isset($most_viewed))
-    <h4 class="text-info text-center">En Çok Okunanlar</h4>
+    <h4 class="text-info text-center" style="margin-top: 10px;">En Çok Okunanlar</h4>
     @foreach($most_viewed as $most)
         <div class="list-group row-col-md-3">
             <a href="{{route('single', [$most->category->slug, $most->slug])}}" class="list-group-item list-group-item-action">
