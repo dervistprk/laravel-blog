@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function adminProfile(){
+    public function adminProfile()
+    {
         $admin = Admins::first();
         return view('backend.profile', compact('admin'));
     }
 
-    public function adminPost(Request $request){
+    public function adminPost(Request $request)
+    {
         $request->validate([
                                'name'     => 'required|min:3',
                                'email'    => 'email|required',

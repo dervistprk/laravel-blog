@@ -10,12 +10,14 @@ use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $categories = Category::all();
         return view('backend.categories.index', compact('categories'));
     }
 
-    public function create(Request $request){
+    public function create(Request $request)
+    {
         $request->validate([
                                'category' => 'required|min:3',
                                'image'    => 'required|image|mimes:jpeg,png,jpg|max:2048',
@@ -42,12 +44,14 @@ class CategoryController extends Controller
         return redirect()->back();
     }
 
-    public function getData(Request $request){
+    public function getData(Request $request)
+    {
         $category = Category::findOrFail($request->id);
         return response()->json($category);
     }
 
-    public function update(Request $request){
+    public function update(Request $request)
+    {
         $isExistSlug = Category::whereSlug(Str::slug($request->slug))->whereNotIn('id', [$request->id])->first();
         $isExistName = Category::whereName($request->category)->whereNotIn('id', [$request->id])->first();
 
@@ -76,13 +80,15 @@ class CategoryController extends Controller
         return redirect()->back();
     }
 
-    public function switch(Request $request){
+    public function switch(Request $request)
+    {
         $category         = Category::findOrFail($request->id);
         $category->status = $request->statu == 'true' ? 1 : 0;
         $category->save();
     }
 
-    public function delete(Request $request){
+    public function delete(Request $request)
+    {
         $category = Category::findOrFail($request->deleteId);
 
         if($category->id == 1){

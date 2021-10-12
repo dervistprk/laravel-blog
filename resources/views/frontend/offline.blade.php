@@ -24,7 +24,7 @@
         margin: 0 auto;
     }
 
-    .img{
+    .img {
         text-align: center;
     }
 </style>

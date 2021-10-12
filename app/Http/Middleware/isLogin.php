@@ -15,7 +15,8 @@ class isLogin
      * @param Closure $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next){
+    public function handle(Request $request, Closure $next)
+    {
         if(Auth::check()){
             return redirect()->route('admin.dashboard');
         }

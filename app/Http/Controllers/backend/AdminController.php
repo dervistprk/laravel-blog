@@ -9,7 +9,8 @@ use App\Models\Page;
 
 class AdminController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $article_count  = Article::all()->count();
         $hit            = Article::sum('hit');
         $category_count = Category::all()->count();

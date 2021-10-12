@@ -8,18 +8,18 @@
                     @php $socials = ['facebook', 'twitter', 'github', 'linkedin', 'youtube', 'instagram'] @endphp
                     @foreach($socials as $social)
                         @if($config->$social!=null)
-                    <li class="list-inline-item">
-                        <a href="{{$config->$social}}" title="{{ucfirst($social)}} Adresimiz" target="_blank">
+                            <li class="list-inline-item">
+                                <a href="{{$config->$social}}" title="{{ucfirst($social)}} Adresimiz" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-{{$social}} fa-stack-1x fa-inverse"></i>
                                     </span>
-                        </a>
-                    </li>
+                                </a>
+                            </li>
                         @endif
                     @endforeach
                 </ul>
-                <div class="small text-center text-muted fst-italic">Copyright &copy;  {{date('Y')}}  - {{$config->title}}</div>
+                <div class="small text-center text-muted fst-italic">Copyright &copy; {{date('Y')}} - {{$config->title}}</div>
             </div>
         </div>
     </div>

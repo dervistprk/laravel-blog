@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         if(Config::find(1)->active == 0){
             redirect()->to('bakimdayiz')->send();
         }
@@ -24,7 +25,8 @@ class HomeController extends Controller
         view()->share('config', Config::find(1));
     }
 
-    public function index(){
+    public function index()
+    {
         $articles = Article::with('category')->where('status', 1)->whereHas('category', function($query){
             $query->where('status', 1);
         })->orderBy('created_at', 'DESC')->paginate(5);
@@ -33,7 +35,8 @@ class HomeController extends Controller
         return view('frontend.home', compact('articles', 'most_viewed'));
     }
 
-    public function single($category, $slug){
+    public function single($category, $slug)
+    {
         $passive_articles = Article::where('status', 0)->get();
         foreach($passive_articles as $passive_article){
             if($slug == $passive_article->slug){
@@ -47,7 +50,8 @@ class HomeController extends Controller
         return view('frontend.single', compact('article'));
     }
 
-    public function category($slug){
+    public function category($slug)
+    {
         $passive_categories = Category::where('status', 0)->get();
         foreach($passive_categories as $passive_category){
             if($slug == $passive_category->slug){
@@ -60,7 +64,8 @@ class HomeController extends Controller
         return view('frontend.category', compact('category', 'articles'));
     }
 
-    public function pages($slug){
+    public function pages($slug)
+    {
         $passive_pages = Page::where('status', 0)->get();
         foreach($passive_pages as $passive_page){
             if($slug == $passive_page->slug){
@@ -68,15 +73,17 @@ class HomeController extends Controller
             }
         }
 
-        $page         = Page::whereSlug($slug)->first() ?? abort(404, 'Böyle Bir Sayfa Bulunamadı');
+        $page = Page::whereSlug($slug)->first() ?? abort(404, 'Böyle Bir Sayfa Bulunamadı');
         return view('frontend.page', compact('page'));
     }
 
-    public function contact(){
+    public function contact()
+    {
         return view('frontend.contact');
     }
 
-    public function contactPost(Request $request){
+    public function contactPost(Request $request)
+    {
         $rules    = ['name'    => 'required|min:3',
                      'email'   => 'required|email|',
                      'topic'   => 'required',

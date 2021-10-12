@@ -54,7 +54,8 @@
                                     <td>{{$category->name}}</td>
                                     <td>
                                         <span class="text-success">Aktif : {{$category->articleCount()}}</span> <br>
-                                        <span class="text-danger">Pasif : {{$category->articleCountPassive()}}</span> <br>
+                                        <span class="text-danger">Pasif : {{$category->articleCountPassive()}}</span>
+                                        <br>
                                         <span class="text-info">Toplam : {{$category->totalArticleCount()}}</span></td>
                                     <td>
                                         <input class="switch" category-id="{{$category->id}}" type="checkbox" data-on="Aktif" data-onstyle="success" data-off="Pasif" data-offstyle="danger" @if($category->status == 1) checked @endif data-toggle="toggle">
@@ -166,9 +167,9 @@
 
                 $('#deleteButton').show();
                 $('#deleteId').val(id);
-                $('#articleAlert').html('<b>' +name+ '</b> kategorisini silmek istediğinizden emin misiniz?');
+                $('#articleAlert').html('<b>' + name + '</b> kategorisini silmek istediğinizden emin misiniz?');
                 if (count > 0) {
-                    $('#articleAlert').html( '<b>' +name+ '</b> kategorisine ait <b>' + count + '</b> adet makale bulunmaktadır. Silmek istediğinizden emin misiniz?')
+                    $('#articleAlert').html('<b>' + name + '</b> kategorisine ait <b>' + count + '</b> adet makale bulunmaktadır. Silmek istediğinizden emin misiniz?')
                 }
                 $('#deleteModal').modal();
             });

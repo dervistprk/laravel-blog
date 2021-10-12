@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-    //Maintanence Route
+//Maintanence Route
 Route::get('bakimdayiz', function(){
     return view('frontend.offline');
 });
@@ -84,7 +84,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/sayfa', [HomeController::class, 'index']);
 Route::get('/iletisim', [HomeController::class, 'contact'])->name('contact');
 Route::post('/iletisim', [HomeController::class, 'contactPost'])->name('contactPost');
-Route::get('/kategori/{category}' ,[HomeController::class, 'category'])->name('category');
+Route::get('/kategori/{category}', [HomeController::class, 'category'])->name('category');
 Route::get('/{category}/{slug}', [HomeController::class, 'single'])->name('single');
 Route::get('/{sayfa}', [HomeController::class, 'pages'])->name('pages');
-

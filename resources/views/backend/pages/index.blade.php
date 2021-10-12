@@ -25,7 +25,8 @@
                     <tbody id="orders">
                     @foreach($pages as $page)
                         <tr id="page_{{$page->id}}">
-                            <td style="width: 75px; vertical-align: middle; text-align: center;"><i class="fa fa-sort fa-2x handle" style="cursor: move;"></i></td>
+                            <td style="width: 75px; vertical-align: middle; text-align: center;">
+                                <i class="fa fa-sort fa-2x handle" style="cursor: move;"></i></td>
                             <td><img src="{{URL::asset($page->image)}}" width="200" alt="sayfa-resim"></td>
                             <td>{{$page->title}}</td>
                             <td>
@@ -52,15 +53,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
     <script>
-       $('#orders').sortable({
+        $('#orders').sortable({
             handle: '.handle',
-            update: function (){
-               var siralama = $('#orders').sortable('serialize');
-               $.get("{{route('admin.pages.orders')}}?" + siralama, function (data,status){
-                   $('#orderSuccess').show().delay(3000).fadeOut();
-               });
+            update: function () {
+                var siralama = $('#orders').sortable('serialize');
+                $.get("{{route('admin.pages.orders')}}?" + siralama, function (data, status) {
+                    $('#orderSuccess').show().delay(3000).fadeOut();
+                });
             }
-       });
+        });
     </script>
 
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
@@ -69,7 +70,8 @@
             $('.switch').change(function () {
                 var id = $(this)[0].getAttribute('page-id');
                 var statu = $(this).prop('checked');
-                $.get("{{route('admin.page.switch')}}", {id: id, statu: statu}, function (data, status) {});
+                $.get("{{route('admin.page.switch')}}", {id: id, statu: statu}, function (data, status) {
+                });
             })
         })
     </script>

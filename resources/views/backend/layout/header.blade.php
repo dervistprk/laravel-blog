@@ -7,7 +7,7 @@
     <meta name="description" content="blogger yönetim paneli">
     <meta name="author" content="blogger">
     <meta name="robots" content="noindex">
-    <link rel="icon" type="image/x-icon" href="{{ URL::asset('configs_uploads/blogger-backoffice-favicon.png') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ URL::asset('configs_uploads/blogger-backoffice-favicon.png') }}"/>
 
     <title>@yield('title', 'Yönetim Paneli')</title>
 

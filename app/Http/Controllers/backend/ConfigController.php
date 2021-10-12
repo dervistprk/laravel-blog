@@ -9,12 +9,14 @@ use Illuminate\Support\Str;
 
 class ConfigController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $config = Config::find(1);
         return view('backend.config.index', compact('config'));
     }
 
-    public function update(Request $request){
+    public function update(Request $request)
+    {
         $config            = Config::find(1);
         $config->title     = $request->title;
         $config->active    = $request->active;

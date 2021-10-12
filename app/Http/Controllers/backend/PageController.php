@@ -10,16 +10,19 @@ use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $pages = Page::all()->sortBy('order');
         return view('backend.pages.index', compact('pages'));
     }
 
-    public function create(){
+    public function create()
+    {
         return view('backend.pages.create');
     }
 
-    public function createPost(Request $request){
+    public function createPost(Request $request)
+    {
         $request->validate([
                                'title'   => 'min:3',
                                'image'   => 'required|image|mimes:jpeg,png,jpg|max:2048',
@@ -44,18 +47,21 @@ class PageController extends Controller
     }
 
 
-    public function switch(Request $request){
+    public function switch(Request $request)
+    {
         $article         = Page::findOrFail($request->id);
         $article->status = $request->statu == 'true' ? 1 : 0;
         $article->save();
     }
 
-    public function update($id){
+    public function update($id)
+    {
         $page = Page::findOrFail($id);
         return view('backend.pages.edit', compact('page'));
     }
 
-    public function updatePost(Request $request, $id){
+    public function updatePost(Request $request, $id)
+    {
         $request->validate([
                                'title'   => 'min:3',
                                'image'   => 'image|mimes:jpeg,png,jpg|max:2048',
@@ -75,7 +81,8 @@ class PageController extends Controller
         return redirect()->route('admin.pages.index');
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $page = Page::find($id);
         if(File::exists($page->image)){
             File::delete(public_path($page->image));
@@ -85,7 +92,8 @@ class PageController extends Controller
         return redirect()->back();
     }
 
-    public function orders(Request $request){
+    public function orders(Request $request)
+    {
         foreach($request->get('page') as $key => $order){
             Page::where('id', $order)->update(['order' => $key]);
         }

@@ -22,7 +22,9 @@
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
                     <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block"><img src="{{URL::asset('page_images/admin-login.png')}}" alt="admin-login" height="250" width="400" style="margin: 50px 0 50px 50px"></div>
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <img src="{{URL::asset('page_images/admin-login.png')}}" alt="admin-login" height="250" width="400" style="margin: 50px 0 50px 50px">
+                        </div>
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">

@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\File;
 
 class ArticleController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $articles = Article::with('category')->get();
         foreach($articles as $article){
             if($article->category->status == 0){
@@ -31,7 +32,8 @@ class ArticleController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index(){
+    public function index()
+    {
         $articles = Article::orderBy('created_at', 'DESC')->get();
         return view('backend.articles.index', compact('articles'));
     }
@@ -41,7 +43,8 @@ class ArticleController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function create(){
+    public function create()
+    {
         $categories = Category::all();
         return view('backend.articles.create', compact('categories'));
     }
@@ -52,7 +55,8 @@ class ArticleController extends Controller
      * @param Request $request
      * @return RedirectResponse
      */
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $request->validate([
                                'title'   => 'min:3',
                                'image'   => 'required|image|mimes:jpeg,png,jpg|max:2048',
@@ -81,7 +85,8 @@ class ArticleController extends Controller
      * @param int $id
      * @return Response
      */
-    public function show($id){
+    public function show($id)
+    {
         //
     }
 
@@ -91,7 +96,8 @@ class ArticleController extends Controller
      * @param int $id
      * @return Application|Factory|View
      */
-    public function edit($id){
+    public function edit($id)
+    {
         $article    = Article::findOrFail($id);
         $categories = Category::all();
         return view('backend.articles.edit', compact('categories', 'article'));
@@ -104,7 +110,8 @@ class ArticleController extends Controller
      * @param int     $id
      * @return RedirectResponse
      */
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         $request->validate([
                                'title'   => 'min:3',
                                'image'   => 'image|mimes:jpeg,png,jpg|max:2048',
@@ -126,7 +133,8 @@ class ArticleController extends Controller
         return redirect()->route('admin.makaleler.index');
     }
 
-    public function switch(Request $request){
+    public function switch(Request $request)
+    {
         $article         = Article::findOrFail($request->id);
         $article->status = $request->statu == 'true' ? 1 : 0;
         $article->save();
@@ -139,24 +147,28 @@ class ArticleController extends Controller
      * @return RedirectResponse
      */
 
-    public function delete($id){
+    public function delete($id)
+    {
         Article::findOrFail($id)->delete();
         toastr()->success('Makale, Başarıyla Silinmiş Makalelere Taşındı.');
         return redirect()->route('admin.makaleler.index');
     }
 
-    public function trashed(){
+    public function trashed()
+    {
         $articles = Article::onlyTrashed()->orderBy('deleted_at', 'DESC')->get();
         return view('backend.articles.trashed', compact('articles'));
     }
 
-    public function recover($id){
+    public function recover($id)
+    {
         Article::onlyTrashed()->find($id)->restore();
         toastr()->success('Makale Başarıyla Kurtarıldı.');
         return redirect()->back();
     }
 
-    public function hardDelete($id){
+    public function hardDelete($id)
+    {
         $article = Article::onlyTrashed()->find($id);
         if(File::exists($article->image)){
             File::delete(public_path($article->image));
