@@ -1,5 +1,5 @@
 @if(isset($categories))
-    <div class="col-md-3" style="margin-top: 45px;">
+    <div class="col-md-3" style="margin: 45px 0 10px 0;">
         <div class="card">
             <div class="card-header">
                 Kategoriler

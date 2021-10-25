@@ -17,7 +17,7 @@
     @endforeach
     <div style="margin-top: 10px;">{{$articles->links()}}</div>
 @else
-    <div class="alert alert-danger text-center">
+    <div class="alert alert-danger text-center" style="margin-top: 45px;">
         <p>
         <h6>Kayıtlı makale bulunamadı.</h6>
         </p>
