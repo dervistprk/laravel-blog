@@ -10,3 +10,6 @@
     Go to <code>http://localhost:8000/admin/giris</code> and type <code>admin@email.com</code> for email and <code>123456</code> for the password.<br>
     After that, go to <i>articles(Makaleler)</i> -> <i>all articles(Tüm Makaleler)</i> and make active all the articles have been added before by the faker lib.
 </p>
+<p>
+    To see the frontend of the website simply go to <code>http://localhost:8000/</code>
+</p>
